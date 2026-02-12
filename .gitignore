@@ -1,0 +1,31 @@
+# --- NODE / BACKEND ---
+node_modules/
+npm-debug.log*
+.env
+.env.local
+
+# --- ANGULAR / FRONTEND ---
+.angular/
+dist/
+.cache/
+.pnp*
+.pnp.js
+
+# --- IDE / EDITOR ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- SISTEMA OPERATIVO ---
+.DS_Store
+Thumbs.db
+
+# --- EXCEL / TEMPORANEI ---
+~$*.xlsx
+~$*.xls
+*.xlsx.tmp
+*.csv.tmp
