@@ -23,19 +23,19 @@ JSON Web Token (autenticazione)
 Swagger / OpenAPI (documentazione API)
 
 ## Tecnologie utilizzate FE
-Angular (Standalone Components)
-Angular Material
-RxJS
+- Angular (Standalone Components)
+- Angular Material
+- RxJS
 
 ## Struttura del progetto
-root/
-  ── be/    Backend Express
-  ── fe/    Frontend Angular
+- root/
+-   ── be/    Backend Express
+-   ── fe/    Frontend Angular
 
 ## Avvio in locale
 ## Requisiti
-Node.js 18+
-MongoDB locale oppure remoto
+- Node.js 18+
+- MongoDB locale oppure remoto
 
 ## Configurazione database
 Di default il backend tenta la connessione a:
@@ -47,24 +47,24 @@ MONGO_URI=<stringa_connessione>
 JWT_SECRET=<segreto_token>
 
 ## Avvio BE
-cd be
-npm install
-npm run dev
+- cd be
+- npm install
+- npm run dev
 
 Server disponibile su:
 http://localhost:3000
 
 ## Avvio FE
-cd fe
-npm install
-ng serve
+- cd fe
+- npm install
+- ng serve
 
 Applicazione disponibile su:
 http://localhost:4200
 
 ## Documentazione API
 È disponibile tramite Swagger:
-http://localhost:3000/api-docs
+http://localhost:3000/api/docs
 
 * Da qui è possibile:
 - consultare gli endpoint
@@ -72,40 +72,43 @@ http://localhost:3000/api-docs
 - testare le chiamate
 
 ## Scelte architetturali BE
-Separazione dei livelli
-Controller → gestione HTTP
-Service → logica applicativa
-Repository → accesso al database
+* Separazione dei livelli
+- Controller → gestione HTTP
+- Service → logica applicativa
+- Repository → accesso al database
 
 ## Repository Pattern
-Incapsula le operazioni Mongo
-Facilita eventuali cambi di datastore
-Gestione file
-Upload temporaneo su filesystem
-Parsing CSV/Excel tramite servizi dedicati
-Persistenza preview su Mongo
-Eliminazione automatica del file dopo il parsing
-Parsing estendibile
-Dispatcher basato sull’estensione
-Facile aggiunta nuovi formati
-Autenticazione
-Login JWT
-Middleware di autorizzazione
-Base per protezione endpoint
-Documentazione
-Swagger integrato per esplorazione API
+- Incapsula le operazioni Mongo
+- Facilita eventuali cambi di datastore
+  
+## Gestione file
+- Upload temporaneo su filesystem
+- Parsing CSV/Excel tramite servizi dedicati
+- Persistenza preview su Mongo
+- Eliminazione automatica del file dopo il parsing
+
+## Parsing estendibile
+- Dispatcher basato sull’estensione
+- Facile aggiunta di nuovi formati
+  
+## Autenticazione
+- Login JWT
+- Middleware di autorizzazione
+- Base per protezione endpoint
+  
+## Documentazione
+- Swagger integrato per esplorazione API
 
 ## Scelte architetturali FE
-Componenti standalone Angular
-Servizi separati dalla UI
-Gestione stato reattiva con RxJS
-Angular Material per UI consistente
-Feedback utente tramite snackbar
-Stati di errore gestiti esplicitamente
-L’approccio adottato punta a mantenere la UI prevedibile e facilmente estendibile.
+- Componenti standalone Angular
+- Servizi separati dalla UI
+- Gestione stato reattiva con RxJS
+- Angular Material per UI consistente
+- Feedback utente tramite snackbar
+- Stati di errore gestiti esplicitamente
 
 ## Gestione errori BE
-Gestione base per:
+* Gestione base per:
 - upload non valido
 - file mancante
 - formato non supportato
@@ -114,25 +117,26 @@ Gestione base per:
 Con restituzione di codici HTTP coerenti.
 
 ## Gestione errori FE
--messaggi errore
--stati vuoti
--feedback operazioni riuscite
+- indicatori di caricamento
+- messaggi errore
+- stati vuoti
+- feedback operazioni riuscite
 
 ## Limitazioni e assunzioni
-L’anteprima mostra solo un sottoinsieme dei dati
-Sistema di autenticazione non completo
-Nessuna gestione utenti lato frontend
-Nessuna containerizzazione Docker (per vincoli temporali)
-Assenza di test automatizzati
+- L’anteprima mostra solo un sottoinsieme dei dati
+- Sistema di autenticazione non completo
+- Nessuna gestione utenti lato frontend
+- Nessuna containerizzazione Docker (per vincoli temporali)
+- Assenza di test automatizzati
 
 ## Possibili sviluppi futuri
-Protezione endpoint tramite auth
-UI di login
-Eliminazione file
-Paginazione preview
-Upload drag & drop
-Test automatici
-Dockerizzazione
+- Protezione endpoint tramite auth
+- UI di login
+- Eliminazione file
+- Paginazione preview
+- Upload drag & drop
+- Test automatici
+- Dockerizzazione
 
 ## Note finali
 L’applicazione è eseguibile completamente in locale seguendo le istruzioni sopra riportate.
