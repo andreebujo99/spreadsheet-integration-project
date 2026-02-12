@@ -1,0 +1,52 @@
+.toolbar {
+  background: linear-gradient(90deg,#1e293b,#334155);
+  color: white;
+  padding: 0 24px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+nav a.active {
+  background: rgba(255,255,255,.12);
+  border-radius: 6px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.breadcrumb-bar {
+  background: #f1f5f9;
+  padding: 8px 24px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 28px 16px;
+}
+
+.main-nav a {
+  color: white;
+  font-weight: 500;
+  border-radius: 12px;
+  margin-left: 6px;
+  padding: 6px 14px;
+  transition: all .2s ease;
+}
+
+.main-nav a:hover {
+  background: rgba(255,255,255,0.18);
+}

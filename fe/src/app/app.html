@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar">
+
+  <div class="toolbar-left">
+    <mat-icon>table_chart</mat-icon>
+    <span class="title">CSV Dashboard</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <nav class="main-nav">
+    <a mat-button routerLink="/" routerLinkActive="active">Files</a>
+    <a mat-button routerLink="/upload" routerLinkActive="active">Upload</a>
+  </nav>
+
+</mat-toolbar>
+
+<div class="breadcrumb-bar">
+  <ng-container *ngIf="breadcrumb$ | async as bc">
+    <span *ngFor="let item of bc; let last = last">
+      <a *ngIf="!last" [routerLink]="item.url">{{ item.label }}</a>
+      <span *ngIf="last">{{ item.label }}</span>
+      <span *ngIf="!last"> / </span>
+    </span>
+  </ng-container>
+</div>
+
+<div class="page">
+  <router-outlet />
+</div>

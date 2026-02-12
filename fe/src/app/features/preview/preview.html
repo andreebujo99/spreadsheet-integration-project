@@ -1,0 +1,71 @@
+<mat-card class="preview-card">
+
+  <div class="preview-header">
+
+    <button mat-icon-button (click)="goBack()" aria-label="Back">
+
+      <mat-icon>arrow_back</mat-icon>
+
+    </button>
+
+    <h2>Preview file</h2>
+
+  </div>
+
+
+  <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate">
+  </mat-progress-bar>
+
+  <div class="table-wrapper">
+
+    <table mat-table [dataSource]="rows$ | async">
+
+      <ng-container *ngFor="let col of columns$ | async" [matColumnDef]="col.name">
+
+        <th mat-header-cell *matHeaderCellDef>
+
+          <div class="header">
+
+            <span>{{ col.name }}</span>
+
+            <mat-form-field appearance="outline">
+              <mat-select [value]="col.type" (selectionChange)="setType(col.name,$event.value)">
+                <mat-option value="string">Text</mat-option>
+                <mat-option value="number">Number</mat-option>
+                <mat-option value="date">Date</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+
+        </th>
+
+        <td mat-cell *matCellDef="let row">
+          {{ row[col.name] }}
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayed$ | async"></tr>
+      <tr mat-row *matRowDef="let r; columns: displayed$ | async"></tr>
+
+    </table>
+
+  </div>
+
+  <mat-card-actions align="end">
+
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="saving$ | async">
+
+      <mat-progress-spinner *ngIf="saving$ | async" diameter="20" mode="indeterminate">
+      </mat-progress-spinner>
+
+      <span *ngIf="!(saving$ | async)">
+        Save
+      </span>
+
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>

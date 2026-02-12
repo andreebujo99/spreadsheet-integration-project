@@ -1,0 +1,45 @@
+.table-wrapper {
+  overflow: auto;
+  margin-top: 12px;
+  border-radius: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+table {
+  background: white;
+}
+
+mat-header-row {
+  background: #f1f5f9;
+}
+
+mat-row:nth-child(even) {
+  background: #fafafa;
+}
+
+mat-row:hover {
+  background: #eef4ff;
+}
+
+mat-form-field {
+  width: 120px;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 8px;
+}
+
+.preview-header h2 {
+  font-weight: 600;
+  letter-spacing: .3px;
+}

@@ -1,0 +1,52 @@
+<mat-card class="files-card">
+
+  <div class="preview-header">
+
+    <h2>Uploaded file</h2>
+
+  </div>
+
+  <mat-card-content>
+
+    <ng-container *ngIf="files$ | async as files">
+
+      <div *ngIf="loading" class="loading">
+        <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+        <span>Loading...</span>
+      </div>
+
+      <mat-nav-list *ngIf="!loading && files.length">
+
+        <a mat-list-item class="file-item" *ngFor="let f of files" [routerLink]="['/preview', f._id]">
+
+          <mat-icon matListIcon color="primary">description</mat-icon>
+
+          <div matLine class="name">
+            {{ f.originalName }}
+          </div>
+
+          <div matLine class="meta">
+            Uploaded on {{ f.uploadDate | date:'medium' }}
+          </div>
+
+          <mat-icon class="arrow">chevron_right</mat-icon>
+
+        </a>
+
+      </mat-nav-list>
+
+      <div *ngIf="!loading && files.length === 0" class="empty">
+
+        <mat-icon>folder_open</mat-icon>
+
+        <p>No files uploaded</p>
+
+        <small>Upload your first CSV or Excel file to get started</small>
+
+      </div>
+
+    </ng-container>
+
+  </mat-card-content>
+
+</mat-card>

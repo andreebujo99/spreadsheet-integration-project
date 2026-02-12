@@ -1,0 +1,50 @@
+<mat-card class="upload-card">
+
+    <div class="preview-header">
+
+    <button mat-icon-button (click)="goBack()" aria-label="Back">
+
+      <mat-icon>arrow_back</mat-icon>
+
+    </button>
+
+    <h2>Upload CSV / Excel</h2>
+
+  </div>
+
+  <mat-card-content>
+
+    <div class="drop">
+
+      <mat-icon>cloud_upload</mat-icon>
+
+      <input type="file" hidden #fileInput (change)="onFile($event)" accept=".csv,.xlsx,.xls" />
+
+      <button mat-stroked-button (click)="fileInput.click()" [disabled]="loading$ | async">
+        Choose file
+      </button>
+
+      <div *ngIf="selected$ | async as file" class="file">
+        {{ file.name }}
+      </div>
+
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+
+    <button mat-raised-button color="primary" (click)="upload()"
+      [disabled]="!(selected$ | async) || (loading$ | async)">
+
+      <mat-progress-spinner *ngIf="loading$ | async" diameter="20" mode="indeterminate"></mat-progress-spinner>
+
+      <span *ngIf="!(loading$ | async)">
+        Upload
+      </span>
+
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>
